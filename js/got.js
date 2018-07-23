@@ -26,7 +26,9 @@ function successAjax(xhttp) {
   sortByName(userDatas);
   doDisplayCharacters(userDatas);
   getSearchTextFromInputField();
-  doDisplayCharactersByClick();
+  doDisplayCharactersByClickOnName();
+  doChangeCharacterDisplayByMouseOver();
+  doChangeCharacterDisplayByMouseOut();
 }
 
 // Írd be a json fileod nevét/útvonalát úgy, ahogy nálad van
@@ -89,7 +91,9 @@ function searchForCharacterName(paramString, paramArray) {
     if (paramArray[i].datas.name.toLowerCase().indexOf(paramString.toLowerCase()) > -1) {
       found = paramArray[i].datas;
       i = paramArray.length;
-    }
+    } /* else {
+      found = 'not found';
+    }*/
   }
   return found;
 }
@@ -100,6 +104,9 @@ function addCharacterToSideDiv(paramObject) {
   filmPic.className = 'film-pic';
   var sideCharDiv = document.createElement('div');
   var filmPicSrc = paramObject.picture;
+  /* if (typeof paramObject === 'string') {
+    sideCharDiv.innerHTML = 'Character not found';
+  } else {*/
   if (paramObject.house !== '') {
     var housePicSrc = '<img src="/assets/houses/' + paramObject.house + '.png"';
     sideCharDiv.innerHTML = '<div class= "name-span">' + paramObject.name + '</div> <div class= "housepic-span">' + housePicSrc + '</div><div class ="bio-div">' + paramObject.bio + '</div>';
@@ -110,20 +117,38 @@ function addCharacterToSideDiv(paramObject) {
   displayDiv.appendChild(filmPic);
   displayDiv.appendChild(sideCharDiv);
 }
+// }
 
 // További információk megjelenítése a karakterről kattintással
-function doDisplayCharactersByClick() {
-  document.addEventListener('click', function (event) {
+function doDisplayCharactersByClickOnName() {
+  var mainDiv = document.querySelector('.main-div');
+  mainDiv.addEventListener('click', function (ev) {
     document.querySelector('.display-div').innerHTML = '';
-    if (event.target.className === 'char-div') {
-      var paramObject = event.target.datas;
+    var target = ev.target;
+    if (target.className === 'char-div') {
+      var paramObject = target.datas;
       addCharacterToSideDiv(paramObject);
     }
   });
 }
 
-document.addEventListener('click', function (event) {
-  if (event.target.tagName == 'BUTTON') {
-    alert('BUTTON CLICKED');
-  }
-});
+// Egér funkciók megadása a karakterek neveihez
+function doChangeCharacterDisplayByMouseOver() {
+  var mainDiv = document.querySelector('.main-div');
+  mainDiv.addEventListener('mouseover', function (ev) {
+    var target = ev.target;
+    if (target.className === 'char-div') {
+      target.style = 'font-weight : bold;';
+    }
+  });
+}
+
+function doChangeCharacterDisplayByMouseOut() {
+  var mainDiv = document.querySelector('.main-div');
+  mainDiv.addEventListener('mouseout', function (ev) {
+    var target = ev.target;
+    if (target.className === 'char-div') {
+      target.style = 'font-weight : normal;';
+    }
+  });
+}
