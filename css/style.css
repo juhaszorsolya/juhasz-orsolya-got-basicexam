@@ -59,3 +59,11 @@ h1 {
     width: 70%;
     box-sizing: border-box;
 }
+
+.char-div {
+    width: 12.5%;
+    height: 16%;
+    text-align: center;
+    float: left;
+    padding: 5px 0 0 0;
+}
