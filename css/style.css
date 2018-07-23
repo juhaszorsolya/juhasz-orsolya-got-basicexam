@@ -67,3 +67,21 @@ h1 {
     float: left;
     padding: 5px 0 0 0;
 }
+
+.display-div {
+
+}
+
+.name-span {
+    width: 70%;
+    font-size: 24px;
+    font-weight: bold;
+    box-sizing: border-box;
+   float: left;
+
+}
+
+.bio-div {
+    margin: 15px;
+    width: 100%;
+}
