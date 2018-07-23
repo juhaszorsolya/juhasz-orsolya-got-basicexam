@@ -1,0 +1,61 @@
+@font-face {
+    font-family: Pathway;
+    src: url(/fonts/PathwayGothicOne-Regular.ttf);
+}
+
+body {
+    margin: 0px;
+    font-family: Pathway;
+}
+
+.main-div {
+    width: 75%;
+    height: 100vh;
+    box-sizing: border-box;
+    float: left;
+    background-image: url(/assets/site/mapblue.jpg);
+}
+
+.side-div {
+    width: 25%;
+    height: 100vh;
+    box-sizing: border-box;
+    float: left;
+    padding: 20px;
+    background-color: #444;
+    color: #fff;
+    
+}
+
+h1 {
+    text-align: center;
+}
+
+.display-div {
+    width: 100%;
+    height: 80vh;
+}
+
+.search-div {
+    box-sizing: border-box;
+    
+}
+
+#search-button {
+    float: left;
+    height: 30px;
+    box-sizing: border-box;
+    margin: 0 20px 0 25px;
+    background-color: #444;
+    border-color: #fff;
+    border-width: 3px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+#search-text {
+    float: left;
+    height: 30px;
+    width: 70%;
+    box-sizing: border-box;
+}
